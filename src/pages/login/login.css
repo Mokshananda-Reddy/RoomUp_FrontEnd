@@ -1,0 +1,107 @@
+.Loginmaincontainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #16202A;
+    /* border-radius: 20px; */
+}
+
+.LImage{
+    position: absolute;
+    top: 55px;
+    left: 43%;
+    height: 225px;
+    width: 225px;
+}
+
+.LLogo {
+    position: absolute;
+    top: 315px;
+    left: 38%;
+    flex: 15;
+    font-size: 80px;
+    margin-left: 20px;
+    font-weight: bold;
+    color: #2EEE9D;
+}
+
+.Square1 {
+    position: absolute;
+    top: -35px;
+    left: -175px;
+    height: 400px;
+    width: 400px;
+    background-color: #2EEE9D;
+    rotate: -30deg;
+}
+
+.Square2 {
+    position: absolute;
+    top: 83px;
+    left: 1385px;
+    height: 400px;
+    width: 400px;
+    background-color: #2EEE9D;
+    rotate: 48deg;
+}
+
+.Input1 {
+    position: absolute;
+    top: 445px;
+    left: 675px;
+}
+
+.Rounded-input1 {
+    width: 205px;
+    line-height: 45px;
+    border-radius: 25px;
+    padding-left: 35px;
+    font-size: 20px;
+    text-align: left;
+    background-color: #2F4052;
+    border: none;
+    outline: none;
+    color: #FFFDD0;
+}
+
+.Input2 {
+    position: absolute;
+    top: 510px;
+    left: 675px;
+}
+
+.Rounded-input2 {
+    width: 205px;
+    line-height: 45px;
+    border-radius: 25px;
+    padding-left: 35px;
+    font-size: 20px;
+    text-align: left;
+    background-color: #2F4052;
+    border: none;
+    outline: none;
+    color: #FFFDD0;
+}
+
+.loginbutton {
+    position:absolute;
+    top: 600px;
+    left: 705px;
+    border-radius: 25px;
+    padding: 15px 20px;
+    background-color: #2F4052;
+    color: #2EEE9D;
+    font-size: 22px;
+    border: none;
+    cursor: pointer;
+    width: 140px;
+    line-height: 15px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.loginbutton:hover {
+    background-color: #808080;
+}
