@@ -1,5 +1,5 @@
 import "./sidebard.css";
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import dimage from "../sidebar/Mindwiselogo-1.png";
 import '@fortawesome/fontawesome-free/css/all.css';
 import { useNavigate } from 'react-router-dom';
@@ -15,6 +15,7 @@ export default function Sidebard() {
         auth.logout()
         navigate('/')
     }
+    
     return (
         <div className="Dbarmaincontainer">
 
@@ -28,28 +29,36 @@ export default function Sidebard() {
 
             <div className="DRequiredButtons">
 
-                <button className="db1" onClick={()=>navigate('/doctorslist')}>
+                
+            <button className="db1" onClick={()=>navigate('/dashboard')}>
+                    <span className="icon">
+                        <i className="fa-solid fa-house-chimney"></i>
+                    </span>
+                    Dashboard
+                </button>
+                
+                <button className="db2" onClick={()=>navigate('/doctorslist')}>
                     <span className="icon">
                         <i className="fa-solid fa-user-doctor"></i>
                     </span>
                     Doctors
                 </button>
 
-                <button className="db2" onClick={()=>navigate('/patientslist')}>
+                <button className="db3" onClick={()=>navigate('/patientslist')}>
                     <span className="icon">
                         <i className="fa-solid fa-hospital-user"></i>
                     </span>
                     Patients
                 </button>
 
-                <button className="db3" onClick={()=>navigate('/taskslist')}>
+                <button className="db4" onClick={()=>navigate('/taskslist')}>
                     <span className="icon">
                         <i className="fa-solid fa-list-check"></i>
                     </span>
                     Tasks
                 </button>
 
-                <button className="db4" onClick={handleLogout}>
+                <button className="db5" onClick={handleLogout}>
                     <span className="icon">
                         <i className="fa-solid fa-right-from-bracket"></i>
                     </span>

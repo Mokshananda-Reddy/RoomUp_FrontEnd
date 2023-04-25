@@ -18,7 +18,7 @@ export default function Topbar() {
 
             <div className="UserIcon">
                 <span className="icon">
-                    <i className="fas fa-user"></i>
+                    <i className="fas fa-user-secret"></i>
                 </span>
             </div>
 

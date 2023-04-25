@@ -21,14 +21,14 @@ export default function Login() {
     }
 
     const handleLogin = () => {
-        axios.post('http://localhost:8080/validate', {"username":Username, "role":"doctor", "password" : Password}
+        axios.post(global.ngroklink + "/validate", {"username":Username, "role":"admin", "password" : Password } 
         ).then((response) => {
         console.log(response.data)
             if(response.data)
             {
                 //alert('Success, Login successful');
                 auth.login(Username)
-                navigate('doctorslist', { replace: true})
+                navigate('dashboard', { replace: true})
             }
             else
             {

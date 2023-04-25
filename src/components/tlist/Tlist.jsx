@@ -1,10 +1,37 @@
 import './tlist.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import { useNavigate, Outlet } from 'react-router-dom';
+import axios from "axios"
+import { useEffect, useState } from "react";
+import "../../components/ngrok";
 
 export default function Tlist() {
 
     const navigate = useNavigate()
+    const [user,setUsers] = useState([])
+
+    useEffect(()=>{
+        loadTasks();
+    },[])
+
+    const loadTasks=()=>{
+        const head = {
+            headers:{
+                'ngrok-skip-browser-warning':'google-chrome'
+            }
+        }
+        axios.get(global.ngroklink + "/exercises",head).then((result) =>{
+            //console.log(result.data);
+            setUsers(result.data);
+        })
+    }
+
+    function handleClicktasdetails(params) {
+        navigate('taskdetails', { state: { data: Object.entries(params) } });
+        // console.log(Object.entries(params));
+        localStorage.setItem("currtasdet", JSON.stringify(params));
+
+    }
 
     return (
 
@@ -12,53 +39,19 @@ export default function Tlist() {
 
             <div className='listoftasks'>
 
-                <button className='task1'>
-                    <span className="icon">
-                        <i className="fas fa-bars-progress"></i>
-                    </span>
-                    T1
+                {
+                    user.map((user)=>(
+                        <button className={'task'} onClick={()=>handleClicktasdetails(user)}>
+                            <span className="icon">
+                                <i className="fas fa-bars-progress"></i>
+                            </span>
+                            {user.name}
 
-                </button>
+                        </button>
 
-                <button className='task2'>
-                    <span className="icon">
-                        <i className="fas fa-bars-progress"></i>
-                    </span>
-                    T2
-
-                </button>
-
-                <button className='task3'>
-                    <span className="icon">
-                        <i className="fas fa-bars-progress"></i>
-                    </span>
-                    T3
-
-                </button>
-
-                <button className='task4'>
-                    <span className="icon">
-                        <i className="fas fa-bars-progress"></i>
-                    </span>
-                    T4
-
-                </button>
-
-                <button className='task5'>
-                    <span className="icon">
-                        <i className="fas fa-bars-progress"></i>
-                    </span>
-                    T5
-
-                </button>
-
-                <button className='task6'>
-                    <span className="icon">
-                        <i className="fas fa-bars-progress"></i>
-                    </span>
-                    T6
-
-                </button>
+                    ))
+                }
+            </div>
 
                 <button className="addtask" onClick={()=>navigate('addtask')}>
                     <span className="icon">
@@ -68,7 +61,6 @@ export default function Tlist() {
 
                 </button>
 
-            </div>
             <Outlet/>
         </div>
     );

@@ -1,11 +1,11 @@
-import "./sidebar.css";
+import "./sidebardash.css";
 import React from 'react';
 import image from "../sidebar/Mindwiselogo-1.png";
 import '@fortawesome/fontawesome-free/css/all.css';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from "../auth";
 
-export default function Sidebar() {
+export default function Sidebardash() {
 
     const navigate = useNavigate()
     const auth = useAuth()
@@ -16,47 +16,47 @@ export default function Sidebar() {
     }
 
     return (
-        <div className="Sbarmaincontainer">
+        <div className="Dasbarmaincontainer">
 
-            <div classname="MindWiseLogo">
+            <div classname="DasMindWiseLogo">
                 <img className="Image" src={image} alt="Mindwise"/>
             </div>
 
-            <div className="DividingLine">
-                <div className="line1"></div>
+            <div className="DasDividingLine">
+                <div className="dasline1"></div>
             </div>
 
-            <div className="RequiredButtons">
+            <div className="DasRequiredButtons">
 
-                <button className="b1" onClick={()=>navigate('/dashboard')}>
+                <button className="dasb1" onClick={()=>navigate('/dashboard')}>
                     <span className="icon">
                         <i className="fa-solid fa-house-chimney"></i>
                     </span>
                     Dashboard
                 </button>
-
-                <button className="b2" onClick={()=>navigate('/doctorslist')}>
+                
+                <button className="dasb2" onClick={()=>navigate('/doctorslist')}>
                     <span className="icon">
                         <i className="fa-solid fa-user-doctor"></i>
                     </span>
                     Doctors
                 </button>
 
-                <button className="b3" onClick={()=>navigate('/patientslist')}>
+                <button className="dasb3" onClick={()=>navigate('/patientslist')}>
                     <span className="icon">
                         <i className="fa-solid fa-hospital-user"></i>
                     </span>
                     Patients
                 </button>
 
-                <button className="b4" onClick={()=>navigate('/taskslist')}>
+                <button className="dasb4" onClick={()=>navigate('/taskslist')}>
                     <span className="icon">
                         <i className="fa-solid fa-list-check"></i>
                     </span>
                     Tasks
                 </button>
 
-                <button className="b5" onClick={handleLogout}>
+                <button className="dasb5" onClick={handleLogout}>
                     <span className="icon">
                         <i className="fa-solid fa-right-from-bracket"></i>
                     </span>
@@ -66,16 +66,16 @@ export default function Sidebar() {
 
             </div>
 
-            <div className="DividingLine2">
-                <div className="line2"></div>
+            <div className="dasDividingLine2">
+                <div className="dasline2"></div>
             </div>
 
             <div className="LogoutButton">
 
             </div>
 
-            <div className="DividingLine3">
-                <div className="line3"></div>
+            <div className="dasDividingLine3">
+                <div className="dasline3"></div>
             </div>
 
         </div>

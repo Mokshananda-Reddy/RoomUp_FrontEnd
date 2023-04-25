@@ -7,9 +7,21 @@
     background-color: #16202A;
 }
 
-.user1{
-    position:absolute;
-    top: 45px;
+.listofpatients{ 
+    position: absolute;
+    top: 40px;
+    left: 25px;
+    height: 60%;
+    width: 45%;
+    background-color: #16202A;
+    overflow-y: scroll;
+    overflow-y: hidden;
+}
+
+.patient{
+    position:relative;
+    margin-bottom: 20px;
+    top: 15px;
     left:35px;
     border-radius: 25px;
     padding: 5px 30px;
@@ -24,116 +36,11 @@
     transition: all 0.3s ease;
 }
 
-.user1:hover {
+.patient:hover {
     background-color: #808080;
 }
 
-.user2{
-    position:absolute;
-    top: 110px;
-    left:35px;
-    border-radius: 25px;
-    padding: 5px 30px;
-    background-color: #2F4052;
-    color: #FFFDD0;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-    width: 550px;
-    height: 45px;
-    text-align: left;
-    transition: all 0.3s ease;
-}
-
-.user2:hover {
-    background-color: #808080;
-}
-
-.user3{
-    position:absolute;
-    top: 175px;
-    left:35px;
-    border-radius: 25px;
-    padding: 5px 30px;
-    background-color: #2F4052;
-    color: #FFFDD0;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-    width: 550px;
-    height: 45px;
-    text-align: left;
-    transition: all 0.3s ease;
-}
-
-.user3:hover {
-    background-color: #808080;
-}
-
-.user4{
-    position:absolute;
-    top: 240px;
-    left:35px;
-    border-radius: 25px;
-    padding: 5px 30px;
-    background-color: #2F4052;
-    color: #FFFDD0;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-    width: 550px;
-    height: 45px;
-    text-align: left;
-    transition: all 0.3s ease;
-}
-
-.user4:hover {
-    background-color: #808080;
-}
-
-.user5{
-    position:absolute;
-    top: 305px;
-    left:35px;
-    border-radius: 25px;
-    padding: 5px 30px;
-    background-color: #2F4052;
-    color: #FFFDD0;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-    width: 550px;
-    height: 45px;
-    text-align: left;
-    transition: all 0.3s ease;
-}
-
-.user5:hover {
-    background-color: #808080;
-}
-
-.user6{
-    position:absolute;
-    top: 370px;
-    left:35px;
-    border-radius: 25px;
-    padding: 5px 30px;
-    background-color: #2F4052;
-    color: #FFFDD0;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-    width: 550px;
-    height: 45px;
-    text-align: left;
-    transition: all 0.3s ease;
-}
-
-.user6:hover {
-    background-color: #808080;
-}
-
-.adduser{
+.addpatient{
     position:absolute;
     top: 536px;
     left:35px;
@@ -150,7 +57,7 @@
     transition: all 0.3s ease;
 }
 
-.adduser:hover {
+.addpatient:hover {
     background-color: #808080;
 }
 

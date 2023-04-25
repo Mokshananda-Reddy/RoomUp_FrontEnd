@@ -1,53 +1,52 @@
 import "./tform.css";
 
-import * as React from 'react';
-import { styled } from '@mui/material/styles';
+import React from 'react';
+import { useState } from "react";
 import TextField from '@mui/material/TextField';
+import axios from "axios"
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Box from '@mui/material/Box';
+import { useNavigate } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
-import Radio from '@mui/material/Radio';
-import RadioGroup from '@mui/material/RadioGroup';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import FormControl from '@mui/material/FormControl';
-import FormLabel from '@mui/material/FormLabel';
-import { pink } from '@mui/material/colors';
-import { yellow } from '@mui/material/colors';
 
 
 export default function Taskdetails() {
 
-    
-    const [selectedValue, setSelectedValue] = React.useState('a');
-    const handleChange = (event) => {
-      setSelectedValue(event.target.value);
-    };
+    const navigate = useNavigate()
+    const [user,setUsers] = useState({
+        name:"",
+        type:"",
+        ans:"",
+        defaultflag:"",
+        description:""
 
-    const ValidationTextField = styled(TextField)({
-        '& input:valid + fieldset': {
-            borderColor: 'green',
-            borderWidth: 2,
-        },
-        '& input:invalid + fieldset': {
-            borderColor: 'red',
-            borderWidth: 2,
-        },
-        '& input:valid:focus + fieldset': {
-            borderLeftWidth: 6,
-            padding: '4px !important',
-        },
     });
 
-    const controlProps = (item) => ({
-        checked: selectedValue === item,
-        onChange: handleChange,
-        value: item,
-        name: "size-radio-button-demo",
-        inputProps: { "aria-label": item },
-      });
+    const onInputChange=(e)=>{
+        
+        setUsers({...user,[e.target.name]:e.target.value});
+    };
+    const onSubmit=async (e)=>{
+        e.preventDefault();
+        await axios.post(global.ngroklink + "/exercise",user);
+        navigate("/taskslist");
+    };
 
+    // const ValidationTextField = styled(TextField)({
+    //     '& input:valid + fieldset': {
+    //         borderColor: 'green',
+    //         borderWidth: 2,
+    //     },
+    //     '& input:invalid + fieldset': {
+    //         borderColor: 'red',
+    //         borderWidth: 2,
+    //     },
+    //     '& input:valid:focus + fieldset': {
+    //         borderLeftWidth: 6,
+    //         padding: '4px !important',
+    //     },
+    // });
 
     return (
         <div className="Tdetailsmaincontainer">
@@ -59,33 +58,61 @@ export default function Taskdetails() {
                 </div>
                 <div className="tformlayout"> 
                     <Row>
-                        <Col >
-                        <ValidationTextField  InputLabelProps={{
+                    <Col >
+                        <TextField  InputLabelProps={{
                                     style: { color: "#FFFDD0" },
                                 }}
-                                label="Task Type"
+                                label="Task Name"
                                 required
                                 variant="outlined"
-                                id="outlined-input"
+                                id="outlined-input-task-name"
                                 size="normal"
-                                helperText="Please enter the task type"
+                                helperText="Please enter the task name"
+                                name="name"
+                                value={user.name}
+                                onChange={(e)=>onInputChange(e)}
                                 inputProps={{
                                     style: {
                                         color: "white",
                                     }
                                 }}
                             />
+                        
                         </Col>
                         <Col >
-                        <ValidationTextField  InputLabelProps={{
+                        <TextField  InputLabelProps={{
+                                    style: { color: "#FFFDD0" },
+                                }}
+                                label="Task Type"
+                                required
+                                variant="outlined"
+                                id="outlined-input-task-type"
+                                size="normal"
+                                helperText="Please enter the task type"
+                                name="type"
+                                value={user.type}
+                                onChange={(e)=>onInputChange(e)}
+                                inputProps={{
+                                    style: {
+                                        color: "white",
+                                    }
+                                }}
+                            />
+                        
+                        </Col>
+                        <Col >
+                        <TextField  InputLabelProps={{
                                     style: { color: "#FFFDD0" },
                                 }}
                                 label="Answer"
                                 required
                                 variant="outlined"
-                                id="outlined-input"
+                                id="outlined-input-answer"
                                 size="normal"
                                 helperText="Please enter the answer"
+                                name="ans"
+                                value={user.ans}
+                                onChange={(e)=>onInputChange(e)}
                                 inputProps={{
                                     style: {
                                         color: "white",
@@ -94,21 +121,24 @@ export default function Taskdetails() {
                             />
                         </Col>
                         <Col>
-                        <FormControl>
-                        <FormLabel id="demo-radio-buttons-group-label" style={{ color: '#FFFDD0' }}>Default-Flag</FormLabel>
-                        <RadioGroup
-                            row
-                            aria-labelledby="demo-radio-buttons-group-label"
-                            defaultValue="female"
-                            name="radio-buttons-group"
-                            helperText="Please enter in dd/mm/yyyy format"
-                        >
-                            <FormControlLabel value="female" style={{ color: '#2EEE9D' }} control={<Radio {...controlProps('a')} sx={{color: pink[600],
-                            '&.Mui-checked': {color: pink[300],},}}/>} label="Yes" />
-                            <FormControlLabel value="male" style={{ color: '#2EEE9D' }} control={<Radio {...controlProps('b')} sx={{color: yellow[600],
-                            '&.Mui-checked': {color: yellow[300],},}}/>} label="No" />
-                        </RadioGroup>
-                        </FormControl>
+                            <TextField  InputLabelProps={{
+                                        style: { color: "#FFFDD0" },
+                                    }}
+                                    label="Default-Flag"
+                                    required
+                                    variant="outlined"
+                                    id="outlined-input-default-flag"
+                                    size="normal"
+                                    helperText="Please enter '1 for Yes' or '0 for No'"
+                                    name="defaultflag"
+                                    value={user.defaultflag}
+                                    onChange={(e)=>onInputChange(e)}
+                                    inputProps={{
+                                        style: {
+                                            color: "white",
+                                        }
+                                    }}
+                            />
                         </Col>
                     </Row>
                     <br />
@@ -120,15 +150,18 @@ export default function Taskdetails() {
                                 '& > :not(style)': { borderWidth: 2, borderLeftWidth: 6 , width: '120ch' },
                             }}
                         >
-                            <ValidationTextField  InputLabelProps={{
+                            <TextField  InputLabelProps={{
                                     style: { color: "#FFFDD0" },
                                 }}
                                 label="Description"
                                 required
                                 variant="outlined"
-                                id="outlined-input"
+                                id="outlined-input-description"
                                 multiline
                                 helperText="Please describe the task details"
+                                name="description"
+                                value={user.description}
+                                onChange={(e)=>onInputChange(e)}
                                 inputProps={{
                                     style: {
                                         color: "white",
@@ -143,7 +176,7 @@ export default function Taskdetails() {
                 </div>
 
                 <div className="SaveButton">
-                    <button className="tsave" >
+                    <button className="tsave" onClick={(e)=>onSubmit(e)}>
                         Save
                     </button>
 

@@ -48,7 +48,7 @@
     border-radius: 25px;
     padding: 5px 30px;
     background-color: #2F4052;
-    color: #2EEE9D;
+    color: #FFFDD0;
     font-size: 16px;
     border: none;
     cursor: pointer;
@@ -64,7 +64,7 @@
     border-radius: 25px;
     padding: 5px 30px;
     background-color: #2F4052;
-    color: #FFFDD0;
+    color: #2EEE9D;
     font-size: 16px;
     border: none;
     cursor: pointer;
@@ -74,6 +74,23 @@
 }
 
 .b4{
+    position:absolute;
+    top: 350px;
+    left:35px;
+    border-radius: 25px;
+    padding: 5px 30px;
+    background-color: #2F4052;
+    color: #FFFDD0;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    width: 168px;
+    text-align: left;
+    transition: all 0.3s ease;
+}
+
+
+.b5{
     position:absolute;
     top: 672px;
     left:35px;
@@ -112,6 +129,10 @@
 }
 
 .b4:hover {
+    background-color: #808080;
+}
+
+.b5:hover {
     background-color: #808080;
 }
 

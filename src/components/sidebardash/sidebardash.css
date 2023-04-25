@@ -1,14 +1,13 @@
-.Dbarmaincontainer{
+.Dasbarmaincontainer{
     position: fixed;
     top: 0;
     left: 0;
     height: 100%;
     width: 255px;
     background-color: #16202A;
-
 }
 
-.DImage{
+.Image{
     position: absolute;
     top: 50px;
     left: 75px;
@@ -16,7 +15,7 @@
     width: 100px;
 }
 
-.dline1{
+.dasline1{
     position: absolute;
     left: 0;
     right: 0;
@@ -26,25 +25,9 @@
 }
 
 
-.db1{
+.dasb1{
     position:absolute;
     top: 215px;
-    left:35px;
-    border-radius: 25px;
-    padding: 5px 30px;
-    background-color: #2F4052;
-    color: #FFFDD0;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-    width: 168px;
-    text-align: left;
-    transition: all 0.3s ease;
-}
-
-.db2{
-    position:absolute;
-    top: 260px;
     left:35px;
     border-radius: 25px;
     padding: 5px 30px;
@@ -58,7 +41,23 @@
     transition: all 0.3s ease;
 }
 
-.db3{
+.dasb2{
+    position:absolute;
+    top: 260px;
+    left:35px;
+    border-radius: 25px;
+    padding: 5px 30px;
+    background-color: #2F4052;
+    color: #FFFDD0;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    width: 168px;
+    text-align: left;
+    transition: all 0.3s ease;
+}
+
+.dasb3{
     position:absolute;
     top: 305px;
     left:35px;
@@ -74,7 +73,7 @@
     transition: all 0.3s ease;
 }
 
-.db4{
+.dasb4{
     position:absolute;
     top: 350px;
     left:35px;
@@ -90,7 +89,7 @@
     transition: all 0.3s ease;
 }
 
-.db5{
+.dasb5{
     position:absolute;
     top: 672px;
     left:35px;
@@ -106,7 +105,7 @@
     transition: all 0.3s ease;
 }
 
-.dline2{
+.dasline2{
     position: absolute;
     left: 0;
     right: 0;
@@ -116,34 +115,33 @@
 }
 
 
-.db1:hover {
+.dasb1:hover {
     background-color: #808080;
 }
 
-.db2:hover {
+.dasb2:hover {
     background-color: #808080;
 }
 
-.db3:hover {
+.dasb3:hover {
     background-color: #808080;
 }
 
-.db4:hover {
+.dasb4:hover {
     background-color: #808080;
 }
 
-.db5:hover {
+.dasb5:hover {
     background-color: #808080;
 }
 
 .icon{
     display: inline-block;
-    /* float:left; */
     margin-right: 10px;
     line-height: 1;
 }
 
-.dline3{
+.dasline3{
     position: absolute;
     left: 254px;
     right: 0; 

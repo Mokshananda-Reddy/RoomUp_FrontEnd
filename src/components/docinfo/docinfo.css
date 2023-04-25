@@ -1,0 +1,155 @@
+.Docinfomaincontainer{
+    position: fixed;
+    top: 140px;
+    left: 255px;
+    height: 100%;
+    width: 100%;
+    background-color:#16202A;
+}
+
+.Doctorid {
+    position: absolute;
+    top: 25px;
+    left: 35px;
+    flex: 15;
+    font-size: 19px;
+    color: #FFFDD0;
+}
+
+.doctorid {
+    position: absolute;
+    top: 25px;
+    left: 180px;
+    flex: 15;
+    font-size: 19px;
+    color: #2EEE9D;
+}
+
+.Doctorname {
+    position: absolute;
+    top: 65px;
+    left: 35px;
+    flex: 15;
+    font-size: 19px;
+    color: #FFFDD0;
+}
+
+.doctorname {
+    position: absolute;
+    top: 65px;
+    left: 180px;
+    flex: 15;
+    font-size: 19px;
+    color: #2EEE9D;
+}
+
+.Doctordob {
+    position: absolute;
+    top: 105px;
+    left: 35px;
+    flex: 15;
+    font-size: 19px;
+    color: #FFFDD0;
+}
+
+.doctordob {
+    position: absolute;
+    top: 105px;
+    left: 180px;
+    flex: 15;
+    font-size: 19px;
+    color: #2EEE9D;
+}
+
+.Doctorgender {
+    position: absolute;
+    top: 145px;
+    left: 35px;
+    flex: 15;
+    font-size: 19px;
+    color: #FFFDD0;
+}
+
+.doctorgender {
+    position: absolute;
+    top: 145px;
+    left: 180px;
+    flex: 15;
+    font-size: 19px;
+    color: #2EEE9D;
+}
+
+/* .Doctorstatus {
+    position: absolute;
+    top: 185px;
+    left: 35px;
+    flex: 15;
+    font-size: 19px;
+    color: #FFFDD0;
+}
+
+.doctorstatus {
+    position: absolute;
+    top: 185px;
+    left: 180px;
+    flex: 15;
+    font-size: 19px;
+    color: #2EEE9D;
+} */
+
+.DoctorregisteredID {
+    position: absolute;
+    top: 225px;
+    left: 35px;
+    flex: 15;
+    font-size: 19px;
+    color: #FFFDD0;
+}
+
+.doctorregisteredID {
+    position: absolute;
+    top: 225px;
+    left: 180px;
+    flex: 15;
+    font-size: 19px;
+    color: #2EEE9D;
+}
+
+.Doctorspecialization {
+    position: absolute;
+    top: 265px;
+    left: 35px;
+    flex: 15;
+    font-size: 19px;
+    color: #FFFDD0;
+}
+
+.doctorspecialization {
+    position: absolute;
+    top: 265px;
+    left: 180px;
+    flex: 15;
+    font-size: 19px;
+    color: #2EEE9D;
+}
+
+.docbackbutton {
+    position:absolute;
+    top: 50%;
+    left: 27%;
+    border-radius: 25px;
+    padding: 15px 20px;
+    background-color: #2F4052;
+    color: #2EEE9D;
+    font-size: 22px;
+    border: none;
+    cursor: pointer;
+    width: 140px;
+    line-height: 15px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.docbackbutton:hover {
+    background-color: #808080;
+}
