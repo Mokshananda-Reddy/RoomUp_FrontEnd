@@ -29,7 +29,7 @@ export default function Taskdetails() {
     };
     const onSubmit=async (e)=>{
         e.preventDefault();
-        await axios.post(global.ngroklink + "/exercise",user);
+        await axios.post(global.ngroklink + "/exercise",user , { headers:{'Authorization': localStorage.getItem('jwt token')}});
         navigate("/taskslist");
     };
 

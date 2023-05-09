@@ -7,17 +7,23 @@ import axios from "axios"
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { useNavigate } from 'react-router-dom';
+import Email from 'emailjs-com';
+// import bcrypt from 'bcryptjs';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 export default function Doctordetails() {
 
     const navigate = useNavigate()
+
+    // const salt = bcrypt.genSaltSync(0);  
+
     const [user,setUsers] = useState({
         name:"",
         dob:"",
         username:"",
         password:"",
+        email:"",
         gender:"",
         specialization:"",
         registeredID:""
@@ -28,13 +34,42 @@ export default function Doctordetails() {
         setUsers({...user,[e.target.name]:e.target.value});
     };
 
-    const onSubmit=async (e)=>{
-        e.preventDefault();
-        await axios.post(global.ngroklink + "/doctor",user);
-        await axios.post(global.ngroklink + '/login', {"username":user.username, "role":"doctor", "password" : user.password }); 
-        navigate("/doctorslist");
-    };
+    // const onSave=async (e)=>{
+    //     e.preventDefault();
+    //     await axios.post(global.ngroklink + "/doctor",user).then((response)=>{
+    //     }).catch((error) => {
+    //         alert('Error', error.message);
+    //         console.log(error.message)
+    //         });
+    //     await axios.post(global.ngroklink + '/login', {"username":user.username, "role":"doctor", "password" : user.password }); 
+    //     // sendEmail(e);
+    //     navigate("/doctorslist");
+    // }; const sendEmail(e){
     
+
+    const sendEmail=async (e)=>{
+        e.preventDefault();
+        console.log("inside mailer");
+        Email.sendForm('service_lmrp9uh', 'template_6g3n2sg', e.target, 'uDSocBPuV77OPgW5o')
+          .then((result) => {
+              console.log(result.text);
+          }, (error) => {
+              console.log(error.text);
+          });
+        // console.log(user.password);
+        // user["password"] = bcrypt.hashSync(user["password"], salt);
+        // console.log(user.password);
+        await axios.post(global.ngroklink + "/doctor",user, { headers:{'Authorization': localStorage.getItem('jwt token')}}).then((response)=>{
+        }).catch((error) => {
+            alert('Error', error.message);
+            console.log(error.message)
+            });
+        await axios.post(global.ngroklink + '/login', {"username":user.username, "role":"doctor", "password" : user.password }, { headers:{'Authorization': localStorage.getItem('jwt token')}}); 
+        e.target.reset()
+        navigate("/doctorslist");
+
+      };
+
     // const ValidationTextField = styled(TextField)({
     //     '& input:valid + fieldset': {
     //         borderColor: 'green',
@@ -59,7 +94,7 @@ export default function Doctordetails() {
                     </span>
                 </div>
                 <div className="dformlayout"> 
-                    <form>    
+                    <form onSubmit={sendEmail}>    
                         <Row>
                             <Col >
                                 <TextField  InputLabelProps={{
@@ -73,7 +108,7 @@ export default function Doctordetails() {
                                     label="Name"
                                     required
                                     variant="outlined"
-                                    id="outlined-input-name"
+                                    id="outlined-input-doctor-name"
                                     size="normal"
                                     helperText="Please enter your fullname"
                                     name="name"
@@ -89,7 +124,7 @@ export default function Doctordetails() {
                                     label="Date of Birth"
                                     required
                                     variant="outlined"
-                                    id="outlined-input-dob"
+                                    id="outlined-input-doctor-dob"
                                     helperText="Please enter in yyyy/mm/dd format"
                                     name="dob"
                                     value={user.dob}
@@ -112,7 +147,7 @@ export default function Doctordetails() {
                                     label="Username"
                                     required
                                     variant="outlined"
-                                    id="outlined-input-username"
+                                    id="outlined-input-doctor-username"
                                     helperText="Please enter your username"
                                     name="username"
                                     value={user.username}
@@ -130,9 +165,9 @@ export default function Doctordetails() {
                                     }}
                                     label="Password"
                                     required
-                                    type="password"
+                                    // type="password"
                                     variant="outlined"
-                                    id="outlined-input-password"
+                                    id="outlined-input-doctor-password"
                                     helperText="Please enter a strong password"
                                     name="password"
                                     value={user.password}
@@ -155,7 +190,7 @@ export default function Doctordetails() {
                                     label="Gender"
                                     required
                                     variant="outlined"
-                                    id="outlined-input-gender"
+                                    id="outlined-input-doctor-gender"
                                     helperText="Please enter your gender"
                                     name="gender"
                                     value={user.gender}
@@ -174,7 +209,7 @@ export default function Doctordetails() {
                                     label="Specialization"
                                     required
                                     variant="outlined"
-                                    id="outlined-input-specialization"
+                                    id="outlined-input-doctor-specialization"
                                     helperText="Please mention your speciality"
                                     name="specialization"
                                     value={user.specialization}
@@ -197,7 +232,7 @@ export default function Doctordetails() {
                                     label="Registered-ID"
                                     required
                                     variant="outlined"
-                                    id="outlined-input-registeredID"
+                                    id="outlined-input-doctor-registeredID"
                                     helperText="Please enter your registration Number"
                                     name="registeredID"
                                     value={user.registeredID}
@@ -209,17 +244,44 @@ export default function Doctordetails() {
                                     }}
                                 />
                             </Col>
+                            <Col>
+                                <TextField  InputLabelProps={{
+                                        style: { color: "#FFFDD0" },
+                                    }}
+                                    label="Email-ID"
+                                    required
+                                    variant="outlined"
+                                    id="outlined-input-doctor-emailID"
+                                    helperText="Please enter your Email ID"
+                                    name="email"
+                                    value={user.email}
+                                    onChange={(e)=>onInputChange(e)}
+                                    inputProps={{
+                                        style: {
+                                            color: "white",
+                                        }
+                                    }}
+                                />
+                            </Col>
                         </Row>
                         <br />
+
+                        <div className="DoctorEmailButton">
+                            <button type="submit" className="dsaveEmail">
+                                Save
+                            </button>
+
+                        </div>
+
                     </form>
                 </div>
-
+{/* 
                 <div className="SaveButton">
-                    <button className="dsave" onClick={(e)=>onSubmit(e)}>
+                    <button className="dsave" onClick={(e)=>onSave(e)}>
                         Save
                     </button>
 
-                </div>
+                </div> */}
             </div>
         </div>
     );

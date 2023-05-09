@@ -16,7 +16,8 @@ export default function Plist() {
     const loadPatients=()=>{
         const head = {
             headers:{
-                'ngrok-skip-browser-warning':'google-chrome'
+                'ngrok-skip-browser-warning':'google-chrome',
+                'Authorization': localStorage.getItem('jwt token')
             }
         }
         axios.get(global.ngroklink + "/patients",head).then((result) =>{

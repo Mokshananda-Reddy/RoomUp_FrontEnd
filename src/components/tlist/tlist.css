@@ -5,6 +5,8 @@
     height: 100%;
     width: 100%;
     background-color: #16202A;
+    overflow-y: scroll;
+    overflow-y: hidden;
 }
 
 .listoftasks{ 

@@ -23,10 +23,17 @@ export default function Login() {
     const handleLogin = () => {
         axios.post(global.ngroklink + "/validate", {"username":Username, "role":"admin", "password" : Password } 
         ).then((response) => {
-        console.log(response.data)
+        console.log(response.data);
+
             if(response.data)
             {
                 //alert('Success, Login successful');
+                axios.post(global.ngroklink + "/signin", {"username":Username, "password": Password}
+                ).then((response1) => {
+                    localStorage.setItem("jwt token", response1.data["token"]);
+                    console.log(response1.data);
+                })
+                
                 auth.login(Username)
                 navigate('dashboard', { replace: true})
             }

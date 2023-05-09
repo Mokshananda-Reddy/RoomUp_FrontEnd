@@ -16,7 +16,8 @@ export default function Dlist() {
     const loadDoctors=()=>{
         const head = {
             headers:{
-                'ngrok-skip-browser-warning':'google-chrome'
+                'ngrok-skip-browser-warning':'google-chrome',
+                'Authorization': localStorage.getItem('jwt token')
             }
         }
 

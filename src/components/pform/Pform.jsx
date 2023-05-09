@@ -7,12 +7,16 @@ import axios from "axios"
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { useNavigate } from 'react-router-dom';
+// import bcrypt from 'bcryptjs';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 export default function Patientdetails() {
 
     const navigate = useNavigate()
+
+    // const salt = bcrypt.genSaltSync(10);
+
     const [user,setUsers] = useState({
         name:"",
         dob:"",
@@ -28,8 +32,15 @@ export default function Patientdetails() {
 
     const onSubmit=async (e)=>{
         e.preventDefault();
-        await axios.post(global.ngroklink + "/patient",user);
-        await axios.post(global.ngroklink + '/login', {"username":user.username, "role":"patient", "password" : user.password });
+        // console.log(user.password);
+        // user["password"] = bcrypt.hashSync(user["password"], salt);
+        // console.log(user.password);
+        await axios.post(global.ngroklink + "/patient",user , { headers:{'Authorization': localStorage.getItem('jwt token')}}).then((response)=>{
+        }).catch((error) => {
+            alert('Error', error.message);
+            console.log(error.message)
+            });
+        await axios.post(global.ngroklink + '/login', {"username":user.username, "role":"patient", "password" : user.password }, { headers:{'Authorization': localStorage.getItem('jwt token')}});
         navigate("/patientslist");
     };
 
@@ -65,7 +76,7 @@ export default function Patientdetails() {
                                 label="Name"
                                 required
                                 variant="outlined"
-                                id="outlined-input"
+                                id="outlined-input-patient-name"
                                 size="normal"
                                 helperText="Please enter your fullname"
                                 name="name"
@@ -85,7 +96,7 @@ export default function Patientdetails() {
                                 label="Date of Birth"
                                 required
                                 variant="outlined"
-                                id="outlined-input"
+                                id="outlined-input-patient-dob"
                                 helperText="Please enter in yyyy/mm/dd format"
                                 name="dob"
                                 value={user.dob}
@@ -108,7 +119,7 @@ export default function Patientdetails() {
                                 label="Username"
                                 required
                                 variant="outlined"
-                                id="outlined-input"
+                                id="outlined-input-patient-username"
                                 helperText="Please enter your username"
                                 name="username"
                                 value={user.username}
@@ -126,9 +137,9 @@ export default function Patientdetails() {
                                 }}
                                 label="Password"
                                 required
-                                type="password"
+                                // type="password"
                                 variant="outlined"
-                                id="outlined-input"
+                                id="outlined-input-patient-password"
                                 helperText="Please enter a strong password"
                                 name="password"
                                 value={user.password}
@@ -151,7 +162,7 @@ export default function Patientdetails() {
                                 label="Gender"
                                 required
                                 variant="outlined"
-                                id="outlined-input"
+                                id="outlined-input-patient-gender"
                                 helperText="Please enter your gender"
                                 name="gender"
                                 value={user.gender}

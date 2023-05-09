@@ -17,7 +17,8 @@ export default function Tlist() {
     const loadTasks=()=>{
         const head = {
             headers:{
-                'ngrok-skip-browser-warning':'google-chrome'
+                'ngrok-skip-browser-warning':'google-chrome',
+                'Authorization': localStorage.getItem('jwt token')
             }
         }
         axios.get(global.ngroklink + "/exercises",head).then((result) =>{

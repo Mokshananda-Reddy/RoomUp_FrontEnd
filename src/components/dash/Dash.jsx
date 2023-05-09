@@ -1,7 +1,6 @@
 import "./dash.css";
 import '@fortawesome/fontawesome-free/css/all.css';
 import React from 'react';
-import { useNavigate, Outlet } from 'react-router-dom';
 import axios from "axios"
 import { useEffect, useState } from "react";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
@@ -9,11 +8,9 @@ import { Doughnut } from 'react-chartjs-2';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-//#ff2259
 
 export default function Dashboardpanel() {
     
-    const navigate = useNavigate()
     const [allPatients,setAllPatients] = useState([])
     const [allDoctors,setAllDoctors] = useState([])
 
@@ -25,7 +22,8 @@ export default function Dashboardpanel() {
     const loadDoctors=()=>{
         const head = {
             headers:{
-                'ngrok-skip-browser-warning':'google-chrome'
+                'ngrok-skip-browser-warning':'google-chrome',
+                'Authorization': localStorage.getItem('jwt token')
             }
         }
 
@@ -38,7 +36,8 @@ export default function Dashboardpanel() {
     const loadPatients=()=>{
         const head = {
             headers:{
-                'ngrok-skip-browser-warning':'google-chrome'
+                'ngrok-skip-browser-warning':'google-chrome',
+                'Authorization': localStorage.getItem('jwt token')
             }
         }
 
@@ -75,8 +74,6 @@ export default function Dashboardpanel() {
                 }} /> 
 
             </div>
-            
-            <Outlet/>
         </div>
         
     );
