@@ -8,15 +8,15 @@ export default function Pagebartaskdetails() {
     
     const navigate = useNavigate()
     const tasdetails = JSON.parse(localStorage.getItem('currtasdet'));
-    const name = tasdetails.name;
+    const name = tasdetails.service;
     
     return(
 
         <div className='Tdtbarmaincontainer'>
             
-            <div className='TdtPresentUsage1' onClick={()=>navigate('/taskslist')}>
+            <div className='TdtPresentUsage1'>
                 <span className="TdtPre">
-                    Tasks
+                    Services
                 </span>
             </div>  
 

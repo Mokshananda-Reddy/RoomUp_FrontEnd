@@ -4,7 +4,7 @@ import '@fortawesome/fontawesome-free/css/all.css';
 import { useNavigate } from 'react-router-dom';
 
 
-export default function Pagebaraddpatient() {
+export default function Pagebaraddstudent() {
     
     const navigate = useNavigate()
 
@@ -12,24 +12,11 @@ export default function Pagebaraddpatient() {
 
         <div className='Atbarmaincontainer'>
             
-            <div className='AtPresentUsage1' onClick={()=>navigate('/taskslist')}>
+            <div className='AtPresentUsage1' onClick={()=>navigate('/requestslist')}>
                 <span className="AtPre">
-                    Tasks
+                    Requesting Service
                 </span>
             </div>  
-
-            <div className='AtPresentUsage2'>
-                <span className="icon">
-                    <i className="fas fa-arrow-right"></i>
-                </span>
-            </div>
-
-            <div className='AtPresentUsage3'>
-                <span className="AtPre1">
-                    Add a New Task
-                </span>
-            </div>
-
 
             <div className='Atdivider'>
 

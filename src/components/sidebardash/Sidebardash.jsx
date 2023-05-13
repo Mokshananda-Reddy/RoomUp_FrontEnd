@@ -5,7 +5,7 @@ import '@fortawesome/fontawesome-free/css/all.css';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from "../auth";
 
-export default function Sidebardash() {
+export default function Sidebarbash() {
 
     const navigate = useNavigate()
     const auth = useAuth()
@@ -35,25 +35,18 @@ export default function Sidebardash() {
                     Dashboard
                 </button>
                 
-                <button className="dasb2" onClick={()=>navigate('/doctorslist')}>
+                <button className="dasb2" onClick={()=>navigate('/blockslist')}>
                     <span className="icon">
-                        <i className="fa-solid fa-user-doctor"></i>
+                        <i className="fa-solid fa-building-user"></i>
                     </span>
-                    Doctors
+                    Block Managers
                 </button>
 
-                <button className="dasb3" onClick={()=>navigate('/patientslist')}>
+                <button className="dasb3" onClick={()=>navigate('/studentslist')}>
                     <span className="icon">
-                        <i className="fa-solid fa-hospital-user"></i>
+                        <i className="fa-solid fa-user-graduate"></i>
                     </span>
-                    Patients
-                </button>
-
-                <button className="dasb4" onClick={()=>navigate('/taskslist')}>
-                    <span className="icon">
-                        <i className="fa-solid fa-list-check"></i>
-                    </span>
-                    Tasks
+                    Students
                 </button>
 
                 <button className="dasb5" onClick={handleLogout}>

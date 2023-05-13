@@ -28,27 +28,6 @@ export default function Sidebart() {
 
             <div className="TRequiredButtons">
 
-                <button className="tb1" onClick={()=>navigate('/dashboard')}>
-                    <span className="icon">
-                        <i className="fa-solid fa-house-chimney"></i>
-                    </span>
-                    Dashboard
-                </button>
-
-                <button className="tb2" onClick={()=>navigate('/doctorslist')}>
-                    <span className="icon">
-                        <i className="fa-solid fa-user-doctor"></i>
-                    </span>
-                    Doctors
-                </button>
-
-                <button className="tb3" onClick={()=>navigate('/patientslist')}>
-                    <span className="icon">
-                        <i className="fa-solid fa-hospital-user"></i>
-                    </span>
-                    Patients
-                </button>
-
                 <buttons className="tb4" onClick={()=>navigate('/taskslist')}>
                     <span className="icon">
                         <i className="fa-solid fa-list-check"></i>

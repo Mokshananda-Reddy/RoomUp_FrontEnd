@@ -10,7 +10,7 @@
 .TImage{
     position: absolute;
     top: 50px;
-    left: 75px;
+    left: 65px;
     height: 100px;
     width: 100px;
 }
@@ -25,58 +25,10 @@
 }
 
 
-.tb1{
-    position:absolute;
-    top: 215px;
-    left:35px;
-    border-radius: 25px;
-    padding: 5px 30px;
-    background-color: #2F4052;
-    color: #FFFDD0;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-    width: 168px;
-    text-align: left;
-    transition: all 0.3s ease;
-}
-
-.tb2{
-    position:absolute;
-    top: 260px;
-    left:35px;
-    border-radius: 25px;
-    padding: 5px 30px;
-    background-color: #2F4052;
-    color: #FFFDD0;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-    width: 168px;
-    text-align: left;
-    transition: all 0.3s ease;
-}
-
-.tb3{
-    position:absolute;
-    top: 305px;
-    left:35px;
-    border-radius: 25px;
-    padding: 5px 30px;
-    background-color: #2F4052;
-    color: #FFFDD0;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-    width: 168px;
-    text-align: left;
-    transition: all 0.3s ease;
-}
-
 .tb4{
     position:absolute;
-    top: 350px;
-    left:35px;
+    top: 225px;
+    left:25px;
     border-radius: 25px;
     padding: 5px 30px;
     background-color: #2F4052;
@@ -84,14 +36,14 @@
     font-size: 16px;
     border: none;
     cursor: pointer;
-    width: 168px;
+    width: 210px;
     text-align: left;
     transition: all 0.3s ease;
 }
 
 .tb5{
     position:absolute;
-    top: 672px;
+    top: 660px;
     left:35px;
     border-radius: 25px;
     padding: 15px 30px;
@@ -112,19 +64,6 @@
     height: 1px;
     background-color: #808080;
     top: 405px; /* change this value to adjust the line position */
-}
-
-
-.tb1:hover {
-    background-color: #808080;
-}
-
-.tb2:hover {
-    background-color: #808080;
-}
-
-.tb3:hover {
-    background-color: #808080;
 }
 
 .tb4:hover {

@@ -11,15 +11,15 @@ ChartJS.register(ArcElement, Tooltip, Legend);
 
 export default function Dashboardpanel() {
     
-    const [allPatients,setAllPatients] = useState([])
-    const [allDoctors,setAllDoctors] = useState([])
+    const [allStudents,setAllStudents] = useState([])
+    const [allBlocks,setAllBlocks] = useState([])
 
     useEffect(()=>{
-        loadDoctors();
-        loadPatients();
+        loadBlocks();
+        loadStudents();
     },[])
 
-    const loadDoctors=()=>{
+    const loadBlocks=()=>{
         const head = {
             headers:{
                 'ngrok-skip-browser-warning':'google-chrome',
@@ -27,13 +27,13 @@ export default function Dashboardpanel() {
             }
         }
 
-        axios.get(global.ngroklink + "/doctors",head).then((result) =>{
-            setAllDoctors(result.data.length);
+        axios.get(global.ngroklink + "/blocks",head).then((result) =>{
+            setAllBlocks(result.data.length);
         })
 
     };
 
-    const loadPatients=()=>{
+    const loadStudents=()=>{
         const head = {
             headers:{
                 'ngrok-skip-browser-warning':'google-chrome',
@@ -41,9 +41,9 @@ export default function Dashboardpanel() {
             }
         }
 
-        axios.get(global.ngroklink + "/patients",head).then((result) =>{
+        axios.get(global.ngroklink + "/students",head).then((result) =>{
             console.log(result.data)
-            setAllPatients(result.data.length);
+            setAllStudents(result.data.length);
         })
 
     };
@@ -54,11 +54,11 @@ export default function Dashboardpanel() {
             <div className="chart1">
                 
                 <Doughnut data={{
-                    labels:['Doctors','Patients'],
+                    labels:['Block Managers','Students'],
                     datasets:[
                         {
                             label: "Users Split", 
-                            data:[allDoctors, allPatients],
+                            data:[allBlocks, allStudents],
                             backgroundColor: [
                                 "#2EEE9D",
                                 "#FFFDD0"

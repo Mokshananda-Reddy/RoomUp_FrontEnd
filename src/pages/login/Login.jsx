@@ -10,6 +10,7 @@ export default function Login() {
     const navigate = useNavigate()
     const [Username, setUsername] = useState('');
     const [Password, setPassword] = useState('');
+    const [Role, setRole] = useState('');
     const auth = useAuth()
 
     const handleInputChangeUsername = (event) => {
@@ -20,22 +21,43 @@ export default function Login() {
         setPassword(event.target.value);
     }
 
+    const handleInputChangeRole = (event) => {
+        setRole(event.target.value);
+    }
+
+    const getStudentDetails=async()=>{
+        const userdetails = await axios.get(global.ngroklink + "/getstudentid", 
+                            {
+                                params: {username: Username}, 
+                            });
+        localStorage.setItem("userdetails", JSON.stringify(userdetails.data));
+    }
+
     const handleLogin = () => {
-        axios.post(global.ngroklink + "/validate", {"username":Username, "role":"admin", "password" : Password } 
+        axios.post(global.ngroklink + "/validate", {"username":Username, "role":Role, "password" : Password } 
         ).then((response) => {
         console.log(response.data);
 
             if(response.data)
             {
-                //alert('Success, Login successful');
-                axios.post(global.ngroklink + "/signin", {"username":Username, "password": Password}
-                ).then((response1) => {
-                    localStorage.setItem("jwt token", response1.data["token"]);
-                    console.log(response1.data);
-                })
-                
                 auth.login(Username)
-                navigate('dashboard', { replace: true})
+
+                if(Role == "admin")
+                {
+                    navigate('dashboard', { replace: true})
+                }
+
+                if(Role == "manager") //change it to manager later
+                {
+                    navigate('/taskslist', { replace: true})
+                }
+
+                if(Role == "student")
+                {
+                    getStudentDetails();
+                    navigate('/requestslist', { replace: true})
+                }
+                
             }
             else
             {
@@ -64,7 +86,7 @@ export default function Login() {
 
             <div className="LoginAppName">
                 <span className="LLogo">
-                    MindWise
+                    RoomUp
                 </span>
             </div>
 
@@ -88,6 +110,18 @@ export default function Login() {
                     onChange={handleInputChangePassword}
                     placeholder="Password"  
                     className="Rounded-input2"
+                />
+
+            </div>
+
+            <div className="Input3">
+
+                <input 
+                    type="text"
+                    value={Role}
+                    onChange={handleInputChangeRole}
+                    placeholder="Role [manager/student/admin] " 
+                    className="Rounded-input3"
                 />
 
             </div>

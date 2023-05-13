@@ -12,7 +12,7 @@ export default function Topbar() {
 
             <div className="AppName">
                 <span className="Logo">
-                    MindWise
+                    RoomUp
                 </span>
             </div>
 

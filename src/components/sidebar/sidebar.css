@@ -10,7 +10,7 @@
 .Image{
     position: absolute;
     top: 50px;
-    left: 75px;
+    left: 65px;
     height: 100px;
     width: 100px;
 }
@@ -28,7 +28,7 @@
 .b1{
     position:absolute;
     top: 215px;
-    left:35px;
+    left:25px;
     border-radius: 25px;
     padding: 5px 30px;
     background-color: #2F4052;
@@ -36,7 +36,7 @@
     font-size: 16px;
     border: none;
     cursor: pointer;
-    width: 168px;
+    width: 210px;
     text-align: left;
     transition: all 0.3s ease;
 }
@@ -44,7 +44,7 @@
 .b2{
     position:absolute;
     top: 260px;
-    left:35px;
+    left:25px;
     border-radius: 25px;
     padding: 5px 30px;
     background-color: #2F4052;
@@ -52,7 +52,7 @@
     font-size: 16px;
     border: none;
     cursor: pointer;
-    width: 168px;
+    width: 210px;
     text-align: left;
     transition: all 0.3s ease;
 }
@@ -60,7 +60,7 @@
 .b3{
     position:absolute;
     top: 305px;
-    left:35px;
+    left:25px;
     border-radius: 25px;
     padding: 5px 30px;
     background-color: #2F4052;
@@ -68,7 +68,7 @@
     font-size: 16px;
     border: none;
     cursor: pointer;
-    width: 168px;
+    width: 210px;
     text-align: left;
     transition: all 0.3s ease;
 }
@@ -76,7 +76,7 @@
 .b4{
     position:absolute;
     top: 350px;
-    left:35px;
+    left:25px;
     border-radius: 25px;
     padding: 5px 30px;
     background-color: #2F4052;
@@ -84,7 +84,7 @@
     font-size: 16px;
     border: none;
     cursor: pointer;
-    width: 168px;
+    width: 210px;
     text-align: left;
     transition: all 0.3s ease;
 }

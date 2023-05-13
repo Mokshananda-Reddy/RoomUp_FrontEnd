@@ -19,7 +19,7 @@
 .taskid {
     position: absolute;
     top: 25px;
-    left: 180px;
+    left: 220px;
     flex: 15;
     font-size: 19px;
     color: #2EEE9D;
@@ -37,7 +37,7 @@
 .taskname {
     position: absolute;
     top: 65px;
-    left: 180px;
+    left: 220px;
     flex: 15;
     font-size: 19px;
     color: #2EEE9D;
@@ -55,25 +55,7 @@
 .taskdefaultflag {
     position: absolute;
     top: 105px;
-    left: 180px;
-    flex: 15;
-    font-size: 19px;
-    color: #2EEE9D;
-}
-
-.Tasktype {
-    position: absolute;
-    top: 145px;
-    left: 35px;
-    flex: 15;
-    font-size: 19px;
-    color: #FFFDD0;
-}
-
-.tasktype {
-    position: absolute;
-    top: 145px;
-    left: 180px;
+    left: 220px;
     flex: 15;
     font-size: 19px;
     color: #2EEE9D;
@@ -81,7 +63,7 @@
 
 .Taskanswer {
     position: absolute;
-    top: 185px;
+    top: 145px;
     left: 35px;
     flex: 15;
     font-size: 19px;
@@ -90,8 +72,8 @@
 
 .taskanswer {
     position: absolute;
-    top: 185px;
-    left: 180px;
+    top: 145px;
+    left: 220px;
     flex: 15;
     font-size: 19px;
     color: #2EEE9D;
@@ -99,7 +81,7 @@
 
 .Taskdescription {
     position: absolute;
-    top: 225px;
+    top: 185px;
     left: 35px;
     flex: 15;
     font-size: 19px;
@@ -108,8 +90,8 @@
 
 .taskdescription {
     position: absolute;
-    top: 225px;
-    left: 180px;
+    top: 185px;
+    left: 220px;
     flex: 15;
     font-size: 19px;
     color: #2EEE9D;

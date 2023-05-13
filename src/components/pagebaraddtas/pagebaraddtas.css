@@ -26,21 +26,3 @@
     background-color: #808080;
     top: 64px; 
 }
-
-.AtPresentUsage2 {
-    position: absolute;
-    top: 26px;
-    left: 107px;
-    color: #FFFDD0;
-}
-
-.AtPre1 {
-    position: absolute;
-    top: 20px;
-    left: 115px;
-    flex: 15;
-    font-size: 23px;
-    margin-left: 23px;
-    color: #2EEE9D;
-    cursor: pointer;
-}

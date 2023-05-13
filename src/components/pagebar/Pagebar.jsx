@@ -6,7 +6,7 @@ export default function Pagebar() {
     
             <div className="PresentUsage">
                 <span className="Pre">
-                    Patients
+                    Students
                 </span>
             </div>
 

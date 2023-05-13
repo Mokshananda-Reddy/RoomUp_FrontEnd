@@ -4,7 +4,7 @@ import Topbar from "../../components/topbar/Topbar";
 import Pagebar from "../../components/pagebardash/Pagebardash";
 import Dash from "../../components/dash/Dash";
 
-export default function doctorslist(){
+export default function blockslist(){
     return (
         <>
             <Topbar/>

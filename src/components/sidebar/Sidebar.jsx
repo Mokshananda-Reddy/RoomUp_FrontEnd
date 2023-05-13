@@ -35,25 +35,20 @@ export default function Sidebar() {
                     Dashboard
                 </button>
 
-                <button className="b2" onClick={()=>navigate('/doctorslist')}>
+                <button className="b2" onClick={()=>navigate('/blockslist')}>
                     <span className="icon">
-                        <i className="fa-solid fa-user-doctor"></i>
+                        {/* <i className="fa-solid fa-user-tie"></i> */}
+                        <i className="fa-solid fa-building-user"></i>
                     </span>
-                    Doctors
+                    Block Managers
                 </button>
 
-                <button className="b3" onClick={()=>navigate('/patientslist')}>
+                <button className="b3" onClick={()=>navigate('/studentslist')}>
                     <span className="icon">
-                        <i className="fa-solid fa-hospital-user"></i>
+                        {/* <i className="fa-solid fa-book-open-reader"></i> */}
+                        <i className="fa-solid fa-user-graduate"></i>
                     </span>
-                    Patients
-                </button>
-
-                <button className="b4" onClick={()=>navigate('/taskslist')}>
-                    <span className="icon">
-                        <i className="fa-solid fa-list-check"></i>
-                    </span>
-                    Tasks
+                    Students
                 </button>
 
                 <button className="b5" onClick={handleLogout}>

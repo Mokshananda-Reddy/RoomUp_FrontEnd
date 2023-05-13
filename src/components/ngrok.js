@@ -1,1 +1,1 @@
-global.ngroklink="https://4c89-2a09-bac5-3b4a-18be-00-277-3e.ngrok-free.app"
+global.ngroklink="http://localhost:8080"

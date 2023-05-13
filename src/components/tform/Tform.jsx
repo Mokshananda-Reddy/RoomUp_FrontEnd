@@ -14,46 +14,34 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 export default function Taskdetails() {
 
     const navigate = useNavigate()
+    const studetails = JSON.parse(localStorage.getItem('currstudetails'));
     const [user,setUsers] = useState({
-        name:"",
-        type:"",
-        ans:"",
-        defaultflag:"",
-        description:""
-
+        service : "",
+        date : "",
+        feedback : "",
+        description : "",
+        studentID: studetails.studentID
+        
     });
 
+    //console.log(studetails.studentID);
     const onInputChange=(e)=>{
         
         setUsers({...user,[e.target.name]:e.target.value});
     };
     const onSubmit=async (e)=>{
         e.preventDefault();
-        await axios.post(global.ngroklink + "/exercise",user , { headers:{'Authorization': localStorage.getItem('jwt token')}});
-        navigate("/taskslist");
+        await axios.post(global.ngroklink + "/task",user);
+        console.log(user);
+        navigate("/requestslist");
     };
-
-    // const ValidationTextField = styled(TextField)({
-    //     '& input:valid + fieldset': {
-    //         borderColor: 'green',
-    //         borderWidth: 2,
-    //     },
-    //     '& input:invalid + fieldset': {
-    //         borderColor: 'red',
-    //         borderWidth: 2,
-    //     },
-    //     '& input:valid:focus + fieldset': {
-    //         borderLeftWidth: 6,
-    //         padding: '4px !important',
-    //     },
-    // });
 
     return (
         <div className="Tdetailsmaincontainer">
             <div className="taskform">  
                 <div className="PageHeading">
                     <span className="Thead">
-                        Task Details
+                        Service Request Details
                     </span>
                 </div>
                 <div className="tformlayout"> 
@@ -62,14 +50,14 @@ export default function Taskdetails() {
                         <TextField  InputLabelProps={{
                                     style: { color: "#FFFDD0" },
                                 }}
-                                label="Task Name"
+                                label="Service Type"
                                 required
                                 variant="outlined"
-                                id="outlined-input-task-name"
+                                id="outlined-input-service-type"
                                 size="normal"
-                                helperText="Please enter the task name"
-                                name="name"
-                                value={user.name}
+                                helperText="Please enter 'Standard' for Normal service and 'Urgent' for Fast service"
+                                name="service"
+                                value={user.service}
                                 onChange={(e)=>onInputChange(e)}
                                 inputProps={{
                                     style: {
@@ -83,14 +71,14 @@ export default function Taskdetails() {
                         <TextField  InputLabelProps={{
                                     style: { color: "#FFFDD0" },
                                 }}
-                                label="Task Type"
+                                label="Date"
                                 required
                                 variant="outlined"
-                                id="outlined-input-task-type"
+                                id="outlined-input-task-date"
                                 size="normal"
-                                helperText="Please enter the task type"
-                                name="type"
-                                value={user.type}
+                                helperText="Please enter the date in yyyy-mm-dd format for the service to be done"
+                                name="date"
+                                value={user.date}
                                 onChange={(e)=>onInputChange(e)}
                                 inputProps={{
                                     style: {
@@ -100,46 +88,7 @@ export default function Taskdetails() {
                             />
                         
                         </Col>
-                        <Col >
-                        <TextField  InputLabelProps={{
-                                    style: { color: "#FFFDD0" },
-                                }}
-                                label="Answer"
-                                required
-                                variant="outlined"
-                                id="outlined-input-answer"
-                                size="normal"
-                                helperText="Please enter the answer"
-                                name="ans"
-                                value={user.ans}
-                                onChange={(e)=>onInputChange(e)}
-                                inputProps={{
-                                    style: {
-                                        color: "white",
-                                    }
-                                }}
-                            />
-                        </Col>
-                        <Col>
-                            <TextField  InputLabelProps={{
-                                        style: { color: "#FFFDD0" },
-                                    }}
-                                    label="Default-Flag"
-                                    required
-                                    variant="outlined"
-                                    id="outlined-input-default-flag"
-                                    size="normal"
-                                    helperText="Please enter '1 for Yes' or '0 for No'"
-                                    name="defaultflag"
-                                    value={user.defaultflag}
-                                    onChange={(e)=>onInputChange(e)}
-                                    inputProps={{
-                                        style: {
-                                            color: "white",
-                                        }
-                                    }}
-                            />
-                        </Col>
+
                     </Row>
                     <br />
                     <br />
@@ -147,20 +96,46 @@ export default function Taskdetails() {
                     <Col>
                         <Box
                             sx={{
-                                '& > :not(style)': { borderWidth: 2, borderLeftWidth: 6 , width: '120ch' },
+                                '& > :not(style)': { borderWidth: 2, borderLeftWidth: 6 , width: '60ch' },
                             }}
                         >
                             <TextField  InputLabelProps={{
                                     style: { color: "#FFFDD0" },
                                 }}
-                                label="Description"
+                                label="Special Instructions"
                                 required
                                 variant="outlined"
                                 id="outlined-input-description"
                                 multiline
-                                helperText="Please describe the task details"
+                                helperText="Please describe any special request that you want to have here"
                                 name="description"
                                 value={user.description}
+                                onChange={(e)=>onInputChange(e)}
+                                inputProps={{
+                                    style: {
+                                        color: "white",
+                                    }
+                                }}
+                            />
+                        </Box>
+                    </Col>
+                    <Col>
+                        <Box
+                            sx={{
+                                '& > :not(style)': { borderWidth: 2, borderLeftWidth: 6 , width: '60ch' },
+                            }}
+                        >
+                            <TextField  InputLabelProps={{
+                                    style: { color: "#FFFDD0" },
+                                }}
+                                label="Feedback"
+                                required
+                                variant="outlined"
+                                id="outlined-input-feedback"
+                                multiline
+                                helperText="Please give your feedback for the service"
+                                name="feedback"
+                                value={user.feedback}
                                 onChange={(e)=>onInputChange(e)}
                                 inputProps={{
                                     style: {

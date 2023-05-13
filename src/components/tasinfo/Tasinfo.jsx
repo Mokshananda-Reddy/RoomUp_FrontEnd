@@ -1,20 +1,19 @@
 import './tasinfo.css';
+import "../../components/ngrok";
 import { Outlet, useNavigate } from 'react-router-dom';
 
 
 export default function TaskInfo() {
 
     const tasdetails = JSON.parse(localStorage.getItem('currtasdet'));
-    const ID = tasdetails.exerciseID;
-    const name = tasdetails.name;
-    const defaultflag = tasdetails.defaultflag;
-    const type = tasdetails.type;
-    const ans = tasdetails.ans;
+    const ID = tasdetails.taskID;
+    const service = tasdetails.service;
+    const date = tasdetails.date;
+    const feedback = tasdetails.feedback;
     const description = tasdetails.description;
-
-    console.log(tasdetails)
-    
+  
     const navigate = useNavigate();
+
 
     return(
 
@@ -24,7 +23,7 @@ export default function TaskInfo() {
 
                 <div className='TaskID'>
                     <span className='Taskid'>
-                        ExerciseID : 
+                        ServiceID : 
                     </span>
                     <span className='taskid'>
                         {ID}
@@ -33,49 +32,38 @@ export default function TaskInfo() {
 
                 <div className='TaskName'>
                     <span className='Taskname'>
-                        Name : 
+                        Service Type : 
                     </span>
                     <span className='taskname'>
-                        {name}
+                        {service}
                     </span>
                 </div>
 
                 <div className='TaskDefaultflag'>
 
                     <span className='Taskdefaultflag'>
-                        Default-Flag : 
+                        Date : 
                     </span>
                     <span className='taskdefaultflag'>
-                        {defaultflag}
+                        {date}
                     </span>
 
-                </div>
-
-                <div className='TaskType'>
-                    
-                    <span className='Tasktype'>
-                        Type : 
-                    </span>
-                    <span className='tasktype'>
-                        {type}
-                    </span>
-                    
                 </div>
 
                 <div className='TaskAnswer'>
 
                     <span className='Taskanswer'>
-                        Answer : 
+                        Feedback : 
                     </span>
                     <span className='taskanswer'>
-                        {ans}
+                        {feedback}
                     </span>
                 
                 </div>
                 
                 <div className='TaskDescription'>
                     <span className='Taskdescription'>
-                        Description : 
+                        Special Requests : 
                     </span>
                     <span className='taskdescription'>
                         {description}
