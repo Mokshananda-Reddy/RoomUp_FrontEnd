@@ -19,6 +19,7 @@ export default function Taskdetails() {
         service : "",
         date : "",
         feedback : "",
+        room : "",
         description : "",
         studentID: studetails.studentID
         
@@ -31,7 +32,11 @@ export default function Taskdetails() {
     };
     const onSubmit=async (e)=>{
         e.preventDefault();
-        await axios.post(global.ngroklink + "/task",user);
+        await axios.post(global.ngroklink + "/task", user, { headers:{'Authorization': localStorage.getItem('jwt token')}}).then((response)=>{
+        }).catch((error) => {
+            alert('Error', error.message);
+            console.log(error.message)
+            });
         console.log(user);
         navigate("/requestslist");
     };
@@ -88,7 +93,27 @@ export default function Taskdetails() {
                             />
                         
                         </Col>
-
+                        <Col >
+                        <TextField  InputLabelProps={{
+                                    style: { color: "#FFFDD0" },
+                                }}
+                                label="Room Number"
+                                required
+                                variant="outlined"
+                                id="outlined-input-room"
+                                size="normal"
+                                helperText="Please enter your Room Number"
+                                name="room"
+                                value={user.room}
+                                onChange={(e)=>onInputChange(e)}
+                                inputProps={{
+                                    style: {
+                                        color: "white",
+                                    }
+                                }}
+                            />
+                        
+                        </Col>
                     </Row>
                     <br />
                     <br />

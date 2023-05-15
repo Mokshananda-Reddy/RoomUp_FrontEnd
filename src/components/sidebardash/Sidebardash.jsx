@@ -18,7 +18,7 @@ export default function Sidebarbash() {
     return (
         <div className="Dasbarmaincontainer">
 
-            <div classname="DasMindWiseLogo">
+            <div className="DasMindWiseLogo">
                 <img className="Image" src={image} alt="Mindwise"/>
             </div>
 

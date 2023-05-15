@@ -18,7 +18,7 @@ export default function Sidebar() {
     return (
         <div className="Sbarmaincontainer">
 
-            <div classname="MindWiseLogo">
+            <div className="MindWiseLogo">
                 <img className="Image" src={image} alt="Mindwise"/>
             </div>
 

@@ -1,6 +1,6 @@
 import './tlist.css';
 import '@fortawesome/fontawesome-free/css/all.css';
-import { useNavigate, Outlet, useParams } from 'react-router-dom';
+import { useNavigate, Outlet } from 'react-router-dom';
 import axios from "axios"
 import { useEffect, useState} from "react";
 import "../../components/ngrok";
@@ -15,13 +15,15 @@ export default function Tlist() {
     },[user])
 
     const loadTasks=()=>{
-        const head = {
+
+        const heads = {
             headers:{
                 'ngrok-skip-browser-warning':'google-chrome',
                 'Authorization': localStorage.getItem('jwt token')
             }
         }
-        axios.get(global.ngroklink + "/tasks",head).then((result) =>{
+        
+        axios.get(global.ngroklink + "/tasks", heads).then((result) =>{
             console.log(result.data);
             setUsers(result.data);
         })

@@ -19,7 +19,7 @@ export default function Sidebarb() {
     return (
         <div className="Dbarmaincontainer">
 
-            <div classname="DMindWiseLogo">
+            <div className="DMindWiseLogo">
                 <img className="DImage" src={dimage} alt="Mindwise"/>
             </div>
 

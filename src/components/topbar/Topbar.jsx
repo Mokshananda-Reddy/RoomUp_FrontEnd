@@ -24,7 +24,7 @@ export default function Topbar() {
 
             <div className="UserName">
                 <p>
-                    {auth.user}
+                    {auth && auth.user ? auth.user : 'Guest'}
                 </p>
             </div>
 

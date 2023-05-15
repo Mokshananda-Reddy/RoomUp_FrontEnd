@@ -34,6 +34,7 @@ export default function Blockdetails() {
 
     const sendEmail=async (e)=>{
         e.preventDefault();
+        
         console.log("inside mailer");
         Email.sendForm('service_lmrp9uh', 'template_6g3n2sg', e.target, 'uDSocBPuV77OPgW5o')
           .then((result) => {

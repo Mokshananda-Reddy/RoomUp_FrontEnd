@@ -20,28 +20,28 @@ export default function Dashboardpanel() {
     },[])
 
     const loadBlocks=()=>{
-        const head = {
+        const heads = {
             headers:{
                 'ngrok-skip-browser-warning':'google-chrome',
                 'Authorization': localStorage.getItem('jwt token')
             }
         }
 
-        axios.get(global.ngroklink + "/blocks",head).then((result) =>{
+        axios.get(global.ngroklink + "/blocks", heads).then((result) =>{
             setAllBlocks(result.data.length);
         })
 
     };
 
     const loadStudents=()=>{
-        const head = {
+        const heads = {
             headers:{
                 'ngrok-skip-browser-warning':'google-chrome',
                 'Authorization': localStorage.getItem('jwt token')
             }
         }
 
-        axios.get(global.ngroklink + "/students",head).then((result) =>{
+        axios.get(global.ngroklink + "/students", heads).then((result) =>{
             console.log(result.data)
             setAllStudents(result.data.length);
         })

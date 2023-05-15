@@ -18,7 +18,7 @@ export default function Sidebart() {
     return (
         <div className="tbarmaincontainer">
 
-            <div classname="TMindWiseLogo">
+            <div className="TMindWiseLogo">
                 <img className="TImage" src={timage} alt="Mindwise"/>
             </div>
 

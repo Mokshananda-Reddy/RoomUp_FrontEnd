@@ -12,6 +12,7 @@ export default function Login() {
     const [Password, setPassword] = useState('');
     const [Role, setRole] = useState('');
     const auth = useAuth()
+ 
 
     const handleInputChangeUsername = (event) => {
         setUsername(event.target.value);
@@ -25,34 +26,60 @@ export default function Login() {
         setRole(event.target.value);
     }
 
-    const getStudentDetails=async()=>{
-        const userdetails = await axios.get(global.ngroklink + "/getstudentid", 
-                            {
-                                params: {username: Username}, 
-                            });
-        localStorage.setItem("userdetails", JSON.stringify(userdetails.data));
-    }
+    const getStudentDetails = async () => {
+        const heads = {
+          headers: {
+            'ngrok-skip-browser-warning': 'google-chrome',
+            Authorization: localStorage.getItem('jwt token')
+          },
+          params: {
+            username: Username
+          }
+        };
+      
+        console.log(Username);
+      
+        try {
+          const userdetails = await axios.get(
+            global.ngroklink + '/getstudentid',
+            heads
+          );
+      
+          console.log(userdetails);
+          localStorage.setItem('userdetails', JSON.stringify(userdetails.data));
+        } catch (error) {
+          console.log(error);
+        }
+      };
+      
 
-    const handleLogin = () => {
+    const handleLogin =() => {
         axios.post(global.ngroklink + "/validate", {"username":Username, "role":Role, "password" : Password } 
         ).then((response) => {
         console.log(response.data);
 
             if(response.data)
             {
+                
+                axios.post(global.ngroklink + "/signin", {"username":Username, "password": Password}
+                ).then((response1) => {
+                    localStorage.setItem("jwt token", response1.data["token"]);
+
+                })
+
                 auth.login(Username)
 
-                if(Role == "admin")
+                if(Role === "admin")
                 {
                     navigate('dashboard', { replace: true})
                 }
 
-                if(Role == "manager") //change it to manager later
+                if(Role === "manager") //change it to manager later
                 {
                     navigate('/taskslist', { replace: true})
                 }
 
-                if(Role == "student")
+                if(Role === "student")
                 {
                     getStudentDetails();
                     navigate('/requestslist', { replace: true})

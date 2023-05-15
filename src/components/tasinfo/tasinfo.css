@@ -61,7 +61,7 @@
     color: #2EEE9D;
 }
 
-.Taskanswer {
+.Taskroom {
     position: absolute;
     top: 145px;
     left: 35px;
@@ -70,7 +70,7 @@
     color: #FFFDD0;
 }
 
-.taskanswer {
+.taskroom {
     position: absolute;
     top: 145px;
     left: 220px;
@@ -79,7 +79,7 @@
     color: #2EEE9D;
 }
 
-.Taskdescription {
+.Taskanswer {
     position: absolute;
     top: 185px;
     left: 35px;
@@ -88,9 +88,27 @@
     color: #FFFDD0;
 }
 
-.taskdescription {
+.taskanswer {
     position: absolute;
     top: 185px;
+    left: 220px;
+    flex: 15;
+    font-size: 19px;
+    color: #2EEE9D;
+}
+
+.Taskdescription {
+    position: absolute;
+    top: 225px;
+    left: 35px;
+    flex: 15;
+    font-size: 19px;
+    color: #FFFDD0;
+}
+
+.taskdescription {
+    position: absolute;
+    top: 225px;
     left: 220px;
     flex: 15;
     font-size: 19px;

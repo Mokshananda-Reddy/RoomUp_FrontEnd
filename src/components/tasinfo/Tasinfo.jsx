@@ -6,11 +6,23 @@ import { Outlet, useNavigate } from 'react-router-dom';
 export default function TaskInfo() {
 
     const tasdetails = JSON.parse(localStorage.getItem('currtasdet'));
-    const ID = tasdetails.taskID;
-    const service = tasdetails.service;
-    const date = tasdetails.date;
-    const feedback = tasdetails.feedback;
-    const description = tasdetails.description;
+    let ID = null;
+    let service = null;
+    let date = null;
+    let feedback = null;
+    let room = null;
+    let description = null;
+
+    if (tasdetails !== null) 
+    {
+        ID = tasdetails.taskID;
+        service = tasdetails.service;
+        date = tasdetails.date;
+        feedback = tasdetails.feedback;
+        room = tasdetails.room;
+        description = tasdetails.description;
+    }
+
   
     const navigate = useNavigate();
 
@@ -26,7 +38,7 @@ export default function TaskInfo() {
                         ServiceID : 
                     </span>
                     <span className='taskid'>
-                        {ID}
+                        {ID && ID}
                     </span>
                 </div>
 
@@ -35,7 +47,7 @@ export default function TaskInfo() {
                         Service Type : 
                     </span>
                     <span className='taskname'>
-                        {service}
+                        {service && service}
                     </span>
                 </div>
 
@@ -45,10 +57,21 @@ export default function TaskInfo() {
                         Date : 
                     </span>
                     <span className='taskdefaultflag'>
-                        {date}
+                        {date && date}
                     </span>
 
                 </div>
+
+                <div className='TaskRoom'>
+
+                    <span className='Taskroom'>
+                        Room Number : 
+                    </span>
+                    <span className='taskroom'>
+                        {room && room}
+                    </span>
+
+                </div>                
 
                 <div className='TaskAnswer'>
 
@@ -56,7 +79,7 @@ export default function TaskInfo() {
                         Feedback : 
                     </span>
                     <span className='taskanswer'>
-                        {feedback}
+                        {feedback && feedback}
                     </span>
                 
                 </div>
@@ -66,7 +89,7 @@ export default function TaskInfo() {
                         Special Requests : 
                     </span>
                     <span className='taskdescription'>
-                        {description}
+                        {description && description}
                     </span>
                 </div>
 

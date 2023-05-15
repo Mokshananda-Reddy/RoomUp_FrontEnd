@@ -14,14 +14,14 @@ export default function Blist() {
     },[user])
 
     const loadBlocks=()=>{
-        const head = {
+        const heads = {
             headers:{
                 'ngrok-skip-browser-warning':'google-chrome',
                 'Authorization': localStorage.getItem('jwt token')
             }
         }
 
-        axios.get(global.ngroklink + "/blocks",head).then((result) =>{
+        axios.get(global.ngroklink + "/blocks", heads).then((result) =>{
             //console.log(result.data);
             setUsers(result.data);
         })
@@ -40,7 +40,7 @@ export default function Blist() {
             <div className="listofblocks">
                 {
                     user.map((user)=>(
-                        <button className='block' onClick={()=>handleClickdocdetails(user)}>
+                        <button className='block' alt="Manager Buttons" onClick={()=>handleClickdocdetails(user)}>
                             <span className="icon">
                                 <i className="fas fa-user-tie"></i>
                             </span>

@@ -1,7 +1,7 @@
 import './reqinfo.css';
-import axios from 'axios';
+// import axios from 'axios';
 import "../ngrok";
-import { useEffect } from "react";
+// import { useEffect } from "react";
 import { Outlet, useNavigate } from 'react-router-dom';
 
 
@@ -12,6 +12,7 @@ export default function RequestInfo() {
     const service = reqdetails.service;
     const date = reqdetails.date;
     const feedback = reqdetails.feedback;
+    const room = reqdetails.room;
     const description = reqdetails.description;
   
     const navigate = useNavigate();
@@ -51,6 +52,17 @@ export default function RequestInfo() {
                     </span>
 
                 </div>
+
+                <div className='RequestRoom'>
+
+                    <span className='Requestroom'>
+                        Room Number : 
+                    </span>
+                    <span className='requestroom'>
+                        {room}
+                    </span>
+
+                </div>                 
 
                 <div className='RequestAnswer'>
 

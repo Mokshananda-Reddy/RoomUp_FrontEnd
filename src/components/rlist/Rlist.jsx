@@ -16,27 +16,44 @@ export default function Rlist() {
 
     const loadRequests=async()=>{
         
-        const head = {
+        const details = JSON.parse(localStorage.getItem('userdetails'));
+
+        let username = null;
+
+        if (details !== null) 
+        {
+            username = details.username;
+        }
+        // const username = details.username;
+        //console.log(username);
+        
+        const heads = {
             headers:{
                 'ngrok-skip-browser-warning':'google-chrome',
-                'Authorization': localStorage.getItem('jwt token')
+                Authorization: localStorage.getItem('jwt token')
+            },
+            params: {
+                username: username
             }
-        }
+        };
 
-        const details = JSON.parse(localStorage.getItem('userdetails'));
-        const username = details.username;
-
-        // console.log(username);
-
-        const Stu = await axios.get(global.ngroklink + "/getstudentid", {params: {username: username}})
+        const Stu = await axios.get(global.ngroklink + "/getstudentid", heads)
         // console.log(Stu);
         
         localStorage.setItem("currstudetails", JSON.stringify(Stu.data));
-        // console.log(Stu);
-        
-        axios.get(global.ngroklink + "/gettasksbystudentid", {params: {studentID: Stu.data['studentID']}}).then((result) =>{
+        //console.log(Stu.data);
+
+        const headts = {
+            headers:{
+                'ngrok-skip-browser-warning':'google-chrome',
+                Authorization: localStorage.getItem('jwt token')
+            },
+            params: {studentID: Stu.data['studentID']}
+        };
+
+        axios.get(global.ngroklink + "/gettasksbystudentid", headts).then((result) =>{
             setUsers([...result.data]);
-            // console.log(result.data);
+            //console.log(result.data);
         })
 
     }

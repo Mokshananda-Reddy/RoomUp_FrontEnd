@@ -1,15 +1,20 @@
 import './pagebartasdet.css';
 import React from 'react';
 import '@fortawesome/fontawesome-free/css/all.css';
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 
 
 export default function Pagebartaskdetails() {
     
-    const navigate = useNavigate()
+    // const navigate = useNavigate()
     const tasdetails = JSON.parse(localStorage.getItem('currtasdet'));
-    const name = tasdetails.service;
-    
+    let name = null;
+
+    if (tasdetails !== null) 
+    {
+        name = tasdetails.service;
+    }
+
     return(
 
         <div className='Tdtbarmaincontainer'>
